@@ -14,6 +14,8 @@
     "mobile-start": "yarn workspace mobile start",
     "mobile-pods": "yarn workspace mobile pods",
     "mobile-ios": "yarn workspace mobile ios",
-    "mobile-android": "yarn workspace mobile android"
+    "mobile-android": "yarn workspace mobile android",
+    "shared-build": "yarn workspace shared build",
+    "shared-nodeModules": "yarn workspace shared install"
   }
 }
