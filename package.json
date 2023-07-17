@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "mono-repo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "web-start": "yarn workspace web start",
+    "web-nodeModules": "yarn workspace web install",
+    "mobile-nodeModules": "yarn workspace mobile install",
+    "mobile-start": "yarn workspace mobile start",
+    "mobile-pods": "yarn workspace mobile pods",
+    "mobile-ios": "yarn workspace mobile ios",
+    "mobile-android": "yarn workspace mobile android"
+  }
+}
