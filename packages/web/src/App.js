@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {msg, logFxn} from 'shared'
+import {msg, logFxn, SharedUIComponent} from 'shared'
 
 function App() {
   return (
@@ -10,6 +10,9 @@ function App() {
         <p>From React Web</p>
         <p>{msg}</p>
         <div onClick={logFxn}> Press me and see log</div>
+        <SharedUIComponent onPress = {() => {
+          console.log("Called from Web")
+        }} />
         
       </header>
     </div>
