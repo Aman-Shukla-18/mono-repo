@@ -26,6 +26,6 @@ and to run on mobile use
 ```bash
 yarn mobile-pods
 yarn mobile-start
-yarn ios
-yarn android
+yarn mobile-ios
+yarn mobile-android
 ```
