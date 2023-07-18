@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import {msg,logFxn} from 'shared'
+import {msg,logFxn,SharedUIComponent} from 'shared'
 
 type Props = {}
 
@@ -10,7 +10,9 @@ const App = (props: Props) => {
       <Text style = {styles.heading}>From React Native</Text>
       <Text style = {styles.heading}>{msg}</Text>
       <Text onPress = {logFxn} style = {styles.heading}>Press me and see log</Text>
-
+      <SharedUIComponent onPress = {() => {
+          console.log("Called from mobile")
+        }} />
     </View>
   )
 }
