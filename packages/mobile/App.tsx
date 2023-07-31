@@ -1,35 +1,50 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import {msg,logFxn,SharedUIComponent} from 'shared'
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {msg, logFxn, SharedUIComponent, getAPI,UserInfo} from 'shared';
 
-type Props = {}
+type Props = {};
 
 const App = (props: Props) => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    getAPI('https://jsonplaceholder.typicode.com/users', setData, console.log);
+  }, []);
   return (
-    <View style = {styles.mainContainer}>
-      <Text style = {styles.heading}>From React Native</Text>
-      <Text style = {styles.heading}>{msg}</Text>
-      <Text onPress = {logFxn} style = {styles.heading}>Press me and see log</Text>
-      <SharedUIComponent onPress = {() => {
-          console.log("Called from mobile")
-        }} />
-    </View>
-  )
-}
+    <ScrollView
+      style={styles.mainContainer}
+      contentContainerStyle={{
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+      <Text style={styles.heading}>From React Native</Text>
+      <Text style={styles.heading}>{msg}</Text>
+      <Text onPress={logFxn} style={styles.heading}>
+        Press me and see log
+      </Text>
+      <SharedUIComponent
+        onPress={() => {
+          console.log('Called from mobile');
+        }}
+      />
 
-export default App
+      {data?.map((item, index) => (
+        <UserInfo data={item} />
+      ))}
+    </ScrollView>
+  );
+};
+
+export default App;
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#489327'
+    backgroundColor: '#489327',
   },
   heading: {
     fontSize: 20,
     fontWeight: 'bold',
     letterSpacing: 1,
-    color: '#bbb213'
-  }
-})
+    color: '#bbb213',
+  },
+});
